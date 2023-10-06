@@ -30,10 +30,8 @@ namespace TheMovies
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Button Clicked!");
-
             var newMovie = new Movies
             {
                 Title = Titletxt.Text,
@@ -44,6 +42,25 @@ namespace TheMovies
 
             controller.AddMovie(newMovie);
 
+        }
+
+        private void Titletxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Tilføjbtn.IsEnabled = !string.IsNullOrWhiteSpace(Titletxt.Text);
+            //Since Title cannot be null, the Button "Tilføj film" can't be clicked unless a title is added
+        }
+
+        private void Lengthtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text[0]))       //Method makes it impossible for end user to add letter or words, and only accepts an integer
+            {
+                e.Handled = true;
+                Errortxt.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Errortxt.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

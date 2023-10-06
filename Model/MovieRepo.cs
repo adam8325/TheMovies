@@ -34,7 +34,8 @@ namespace TheMovies.Model
                     {
                         command.Parameters.AddWithValue("@Title", movie.Title);
                         command.Parameters.AddWithValue("@Length", movie.Length);
-                        command.Parameters.AddWithValue("@Genre", movie.Genre);                    
+                        command.Parameters.AddWithValue("@Genre", movie.Genre);
+                        command.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)

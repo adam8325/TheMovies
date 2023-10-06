@@ -15,7 +15,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="https://e0.pxfuel.com/wallpapers/855/67/desktop-wallpaper-real-estate-agent-background-travel-agent-agent-venom-and-agent-wash-thumbnail.jpg"/>
         </Grid.Background>
-        <ListView ItemsSource="{Binding Items}" Margin="200,60,171,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView ItemsSource="{Binding MoviesList}" Margin="200,60,160,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
             <ListView.View>
                 <GridView>
                     <!-- Define the first column -->
@@ -50,7 +50,6 @@
 
             </ListView.View>
         </ListView>
-        <Button Content="Tilføj film" Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="350,380,0,0" VerticalAlignment="Top" Height="31" Width="74" Click="Button_Click"/>
         <Label>
             <StackPanel Orientation="Horizontal" Margin="240, 10, 200, 110">
                 <Image Width="20" Source="https://pics.freeicons.io/uploads/icons/png/154248133316313445984151-512.png"/>
@@ -59,11 +58,14 @@
             </StackPanel>
         </Label>
         <Label Content="Titel" HorizontalAlignment="Left" Margin="200,244,0,0" VerticalAlignment="Top"/>
-        <Label Content="Varighed" HorizontalAlignment="Left" Margin="200,284,0,0" VerticalAlignment="Top"/>
+        <Label Content="Varighed (min)" HorizontalAlignment="Left" Margin="200,284,0,0" VerticalAlignment="Top" />
         <Label Content="Genre" HorizontalAlignment="Left" Margin="200,325,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Titletxt" HorizontalAlignment="Left" Margin="309,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Lengthtxt" HorizontalAlignment="Left" Margin="309,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Genretxt" HorizontalAlignment="Left" Margin="309,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Titletxt" HorizontalAlignment="Left" Margin="309,252,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="Titletxt_TextChanged"/>
+        <TextBox x:Name="Lengthtxt" HorizontalAlignment="Left" Margin="309,288,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewTextInput="Lengthtxt_PreviewTextInput"/>
+        <TextBox x:Name="Genretxt" HorizontalAlignment="Left" Margin="309,329,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Tilføjbtn" Content="Tilføj film" Background="Green" Foreground="White" HorizontalAlignment="Left" IsEnabled="False" Margin="353,382,0,0" VerticalAlignment="Top" Height="23" Width="76" Click="Button_Click_1"/>
+        <TextBlock x:Name="Errortxt" HorizontalAlignment="Left" Margin="326,311,0,0" TextWrapping="Wrap" Text="Du kan kun indtaste tal" Foreground="Red" Visibility="Collapsed" VerticalAlignment="Top" Width="130" FontSize="8"/>
+
 
 
 
