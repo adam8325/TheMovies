@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheMovies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="The Movies" Height="450" Width="600">
+    <Window.Resources>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://e0.pxfuel.com/wallpapers/855/67/desktop-wallpaper-real-estate-agent-background-travel-agent-agent-venom-and-agent-wash-thumbnail.jpg"/>
+        </Grid.Background>
+        <ListView ItemsSource="{Binding Items}" Margin="200,60,171,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.View>
+                <GridView>
+                    <!-- Define the first column -->
+                    <GridViewColumn Header="Titel" Width="80" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Bind to your data property -->
+                                <TextBlock Text="{Binding Title}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Define the second column -->
+                    <GridViewColumn Header="Varighed" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Bind to your data property -->
+                                <TextBlock Text="{Binding Length}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Define the third column -->
+                    <GridViewColumn Header="Genre" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Bind to your data property -->
+                                <TextBlock Text="{Binding Genre}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+        <Button Content="Tilføj film" Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="350,380,0,0" VerticalAlignment="Top" Height="31" Width="74" Click="Button_Click"/>
+        <Label>
+            <StackPanel Orientation="Horizontal" Margin="240, 10, 200, 110">
+                <Image Width="20" Source="https://pics.freeicons.io/uploads/icons/png/154248133316313445984151-512.png"/>
+                <AccessText Text="  "/>
+                <AccessText Text="Film oversigt" FontSize="20" FontFamily="Berlin Sans FB"/>
+            </StackPanel>
+        </Label>
+        <Label Content="Titel" HorizontalAlignment="Left" Margin="200,244,0,0" VerticalAlignment="Top"/>
+        <Label Content="Varighed" HorizontalAlignment="Left" Margin="200,284,0,0" VerticalAlignment="Top"/>
+        <Label Content="Genre" HorizontalAlignment="Left" Margin="200,325,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Titletxt" HorizontalAlignment="Left" Margin="309,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Lengthtxt" HorizontalAlignment="Left" Margin="309,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Genretxt" HorizontalAlignment="Left" Margin="309,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
 
     </Grid>
 </Window>
