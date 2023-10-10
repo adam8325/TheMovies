@@ -41,6 +41,9 @@ namespace TheMovies
             };
 
             controller.AddMovie(newMovie);
+            Titletxt.Clear();
+            Lengthtxt.Clear();
+            Genretxt.Clear();
 
         }
 

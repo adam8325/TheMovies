@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheMovies"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="The Movies" Height="450" Width="600">
     <Window.Resources>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Height="450" Width="600">
         <Grid.Background>
             <ImageBrush ImageSource="https://e0.pxfuel.com/wallpapers/855/67/desktop-wallpaper-real-estate-agent-background-travel-agent-agent-venom-and-agent-wash-thumbnail.jpg"/>
         </Grid.Background>
-        <ListView ItemsSource="{Binding MoviesList}" Margin="200,60,160,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView ItemsSource="{Binding MoviesList}" Margin="170,60,125,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>
                 <GridView>
                     <!-- Define the first column -->
-                    <GridViewColumn Header="Titel" Width="80" >
+                    <GridViewColumn Header="Titel" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <!-- Bind to your data property -->
@@ -29,7 +30,7 @@
                     </GridViewColumn>
 
                     <!-- Define the second column -->
-                    <GridViewColumn Header="Varighed" Width="80">
+                    <GridViewColumn Header="Varighed" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <!-- Bind to your data property -->
@@ -38,7 +39,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <!-- Define the third column -->
-                    <GridViewColumn Header="Genre" Width="80">
+                    <GridViewColumn Header="Genre" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <!-- Bind to your data property -->
@@ -51,7 +52,7 @@
             </ListView.View>
         </ListView>
         <Label>
-            <StackPanel Orientation="Horizontal" Margin="240, 10, 200, 110">
+            <StackPanel Orientation="Horizontal" Margin="250, 10, 200, 110">
                 <Image Width="20" Source="https://pics.freeicons.io/uploads/icons/png/154248133316313445984151-512.png"/>
                 <AccessText Text="  "/>
                 <AccessText Text="Film oversigt" FontSize="20" FontFamily="Berlin Sans FB"/>
