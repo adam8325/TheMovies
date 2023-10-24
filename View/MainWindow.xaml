@@ -12,45 +12,32 @@
             <Setter Property="HorizontalContentAlignment" Value="Left" />
         </Style>
     </Window.Resources>
-    <Grid Height="450" Width="600">
-        <Grid.Background>
-            <ImageBrush ImageSource="https://e0.pxfuel.com/wallpapers/855/67/desktop-wallpaper-real-estate-agent-background-travel-agent-agent-venom-and-agent-wash-thumbnail.jpg"/>
-        </Grid.Background>
-        <ListView ItemsSource="{Binding MoviesList}" Margin="170,60,125,229" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <ListView.View>
-                <GridView>
-                    <!-- Define the first column -->
-                    <GridViewColumn Header="Titel" Width="100" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <!-- Bind to your data property -->
-                                <TextBlock Text="{Binding Title}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
-                    <!-- Define the second column -->
-                    <GridViewColumn Header="Varighed" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <!-- Bind to your data property -->
-                                <TextBlock Text="{Binding Length}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <!-- Define the third column -->
-                    <GridViewColumn Header="Genre" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <!-- Bind to your data property -->
-                                <TextBlock Text="{Binding Genre}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-
-            </ListView.View>
-        </ListView>
+    <Grid Height="450" Width="600">       
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="148,71,100,230"  ItemsSource="{Binding MoviesList}" AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGrid}">
+                    <Setter Property="RowHeaderWidth" Value="0" />
+                </Style>
+                <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="BorderBrush" Value="Black" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="40"/>
+                <DataGridTextColumn Header="Titel" Width="*" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Varighed" Width="*" Binding="{Binding Length}"/>
+                <DataGridTextColumn Header="Genre" Width="*" Binding="{Binding Genre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label>
             <StackPanel Orientation="Horizontal" Margin="250, 10, 200, 110">
                 <Image Width="20" Source="https://pics.freeicons.io/uploads/icons/png/154248133316313445984151-512.png"/>
@@ -66,9 +53,5 @@
         <TextBox x:Name="Genretxt" HorizontalAlignment="Left" Margin="309,329,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Tilføjbtn" Content="Tilføj film" Background="Green" Foreground="White" HorizontalAlignment="Left" IsEnabled="False" Margin="353,382,0,0" VerticalAlignment="Top" Height="23" Width="76" Click="Button_Click_1"/>
         <TextBlock x:Name="Errortxt" HorizontalAlignment="Left" Margin="326,311,0,0" TextWrapping="Wrap" Text="Du kan kun indtaste tal" Foreground="Red" Visibility="Collapsed" VerticalAlignment="Top" Width="130" FontSize="8"/>
-
-
-
-
     </Grid>
 </Window>
